@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Studio {
     private String nome;
-    private List<Usuario> membros; 
+    private final List<Usuario> membros; 
 
     public Studio(String nome) {
         this.nome = nome;

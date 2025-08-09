@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gerenciamento {
-    private List<Jogo> jogos = new ArrayList<>();
+    private final List<Jogo> jogos = new ArrayList<>();
 
     public void adicionarJogo(Jogo jogo) {
         jogos.add(jogo);

@@ -1,19 +1,36 @@
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.swing.*;
 
 public class Main {
-    private static List<Studio> studiosExistentes = new ArrayList<>();
-    
+    private static final List<Studio> studiosExistentes = new ArrayList<>();    
     public static void main(String[] args) {
-        // SwingUtilities.invokeLater -> interface criada
-        SwingUtilities.invokeLater(() -> new TelaInicial());
-    }
-}
+            System.out.println("Programa iniciado.");
 
+            // Criando objetos de Studio
+            Studio studio1 = new Studio("Cronologia Astral");
+
+            // Criando um objeto de Jogo, usando o nome de um dos studios criados
+            // Corrigindo o erro em Studio.getNome()
+          // Em Main.java, corrija a linha 16 para passar apenas 4 argumentos
+Jogo jogo1 = new Jogo("Estefania do Norte",
+                     LocalDate.of(2025, 8, 9),
+                     LocalDate.of(2025, 9, 5),
+                     "Em desenvolvimento"); // Removi studio1.getNome()
+            // Criando uma instância de Gerenciamento para poder usar seus métodos
+            // Corrigindo o erro em Gerenciamento.adicionarJogo()
+            Gerenciamento gerenciador = new Gerenciamento();
+            gerenciador.adicionarJogo(jogo1);
+
+            SwingUtilities.invokeLater(() -> new TelaInicial());
+            System.out.println("teste");
+        }
+        
+    public static void adicionarStudio(Studio studio) {
+        studiosExistentes.add(studio);
+}
+}
 class TelaInicial extends JFrame {
     
     public TelaInicial() {
@@ -23,7 +40,7 @@ class TelaInicial extends JFrame {
         setLocationRelativeTo(null); // Centraliza a janela
 
         JPanel painel = new JPanel();
-        
+
         JButton btnCriarStudio = new JButton("Cadastrar um novo Studio");
         JButton btnEntrarStudio = new JButton("Entrar em um Studio existente");
 
@@ -32,23 +49,15 @@ class TelaInicial extends JFrame {
 
         add(painel);
         
-        // Adicionando a lógica para os botões
-        btnCriarStudio.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //chama a tela de cadastro e tela de criação de studio
-                JOptionPane.showMessageDialog(TelaInicial.this, "Cadastrar Studio clicado!");
-                // Por enquanto, vamos manter a lógica no console para simplificar
-                // Mais tarde, podemos abrir uma nova janela de cadastro
-            }
+    // Lógica para os botões (uma única vez)
+        btnCriarStudio.addActionListener(e -> {
+            new TelaCadastro(); 
+            // Você pode adicionar um JOptionPane de confirmação aqui se quiser
         });
         
-        btnEntrarStudio.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Aqui vamos chamar a lógica para entrar em um studio
-                JOptionPane.showMessageDialog(TelaInicial.this, "Entrar em Studio clicado!");
-            }
+        btnEntrarStudio.addActionListener(e -> {
+            JOptionPane.showMessageDialog(TelaInicial.this, "Entrar em Studio!");
+            // tela para o login
         });
 
         setVisible(true);
