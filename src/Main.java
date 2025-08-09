@@ -1,10 +1,9 @@
-package scr;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Main {
     private static List<Studio> studiosExistentes = new ArrayList<>();

@@ -1,8 +1,5 @@
-package src.Controles;
 import java.util.ArrayList;
 import java.util.List;
-
-import scr.Modelos.Studio;
 
 public class Cadrasto {
     private String nome;
@@ -10,7 +7,7 @@ public class Cadrasto {
     private String senha;
     private Studio studio; // Referência à classe Studio
 
-    public Usuario(String nome, String email, String senha) {
+    public void Usuario(String nome, String email, String senha) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
