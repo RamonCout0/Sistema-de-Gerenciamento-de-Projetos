@@ -1,7 +1,10 @@
+package src.Controles;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+import scr.Modelos.Studio;
+
+public class Cadrasto {
     private String nome;
     private String email;
     private String senha;
