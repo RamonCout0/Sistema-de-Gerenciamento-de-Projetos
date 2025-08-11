@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -10,26 +9,19 @@ public class Main {
 
             // Criando objetos de Studio
             Studio studio1 = new Studio("Cronologia Astral");
-
-            // Criando um objeto de Jogo, usando o nome de um dos studios criados
-            // Corrigindo o erro em Studio.getNome()
-          // Em Main.java, corrija a linha 16 para passar apenas 4 argumentos
-Jogo jogo1 = new Jogo("Estefania do Norte",
-                     LocalDate.of(2025, 8, 9),
-                     LocalDate.of(2025, 9, 5),
-                     "Em desenvolvimento"); // Removi studio1.getNome()
-            // Criando uma instância de Gerenciamento para poder usar seus métodos
-            // Corrigindo o erro em Gerenciamento.adicionarJogo()
             Gerenciamento gerenciador = new Gerenciamento();
-            gerenciador.adicionarJogo(jogo1);
-
             SwingUtilities.invokeLater(() -> new TelaInicial());
             System.out.println("teste");
         }
         
     public static void adicionarStudio(Studio studio) {
         studiosExistentes.add(studio);
-}
+        System.out.println("Studio adicionado: " + studio.getNome());     
+    }
+    
+    public static List<Studio> getStudiosExistentes() {
+        return studiosExistentes;
+    }
 }
 class TelaInicial extends JFrame {
     
@@ -49,15 +41,15 @@ class TelaInicial extends JFrame {
 
         add(painel);
         
-    // Lógica para os botões (uma única vez)
+        // Lógica para os botões (uma única vez)
         btnCriarStudio.addActionListener(e -> {
-            new TelaCadastro(); 
-            // Você pode adicionar um JOptionPane de confirmação aqui se quiser
+            TelaCadastro telaCadastro = new TelaCadastro();
+            telaCadastro.setVisible(true); 
         });
-        
+
         btnEntrarStudio.addActionListener(e -> {
-            JOptionPane.showMessageDialog(TelaInicial.this, "Entrar em Studio!");
-            // tela para o login
+            // Apenas cria e abre a nova tela, sem a mensagem de JOptionPane
+            TelaLoginEstudio telaLogin = new TelaLoginEstudio();
         });
 
         setVisible(true);

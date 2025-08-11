@@ -7,16 +7,13 @@ public class Jogo {
     private LocalDate prazoFim;
     private String equipeResponsavel;
 
-    public Jogo(String nome, LocalDate prazoInicio, LocalDate prazoFim, String equipeResponsavel, String em_desenvolvimento) {
+    // Construtor principal, agora mais flexível
+    public Jogo(String nome, String status, LocalDate prazoInicio, LocalDate prazoFim, String equipeResponsavel) {
         this.nome = nome;
-        this.status = "Em desenvolvimento";
+        this.status = status;
         this.prazoInicio = prazoInicio;
         this.prazoFim = prazoFim;
         this.equipeResponsavel = equipeResponsavel;
-    }
-
-    Jogo(String estefania_do_Norte, LocalDate of, LocalDate of0, String nome, String em_desenvolvimento) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     // Getters e Setters

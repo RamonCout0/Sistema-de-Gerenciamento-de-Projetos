@@ -1,6 +1,5 @@
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
+import javax.swing.*;
 
 public class TelaCadastro extends JFrame {
     public TelaCadastro() {
@@ -39,7 +38,7 @@ public class TelaCadastro extends JFrame {
             if (nome.isEmpty() || equipe.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                Studio novoStudio = new Studio(nome, equipe);
+                Studio novoStudio = new Studio(nome);
                 Main.adicionarStudio(novoStudio); // Método estático para adicionar Studio
                 JOptionPane.showMessageDialog(this, "Studio cadastrado com sucesso!");
                 dispose(); // Fecha a janela de cadastro
