@@ -22,6 +22,15 @@ public class Main {
     public static List<Studio> getStudiosExistentes() {
         return studiosExistentes;
     }
+    
+    public static Studio encontrarStudioPorNome(String nome) {
+    for (Studio estudio : studiosExistentes) {
+        if (estudio.getNome().equals(nome)) {
+            return estudio;
+        }
+    }
+    return null; // Retorna null se não encontrar
+}
 }
 class TelaInicial extends JFrame {
     

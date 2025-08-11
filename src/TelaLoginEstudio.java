@@ -37,11 +37,18 @@ public class TelaLoginEstudio extends JFrame {
 
         // Lógica para o botão "Entrar"
         btnEntrar.addActionListener(e -> {
-            String nomeStudioSelecionado = (String) comboStudios.getSelectedItem();
-            JOptionPane.showMessageDialog(this, "Você entrou no Studio: " + nomeStudioSelecionado);
-            dispose();
-            // Futuramente, você abrirá a tela principal do Studio aqui
-        });
+        String nomeStudioSelecionado = (String) comboStudios.getSelectedItem();
+
+        // Encontra o objeto Studio correspondente
+        Studio estudioSelecionado = Main.encontrarStudioPorNome(nomeStudioSelecionado);
+        
+        if (estudioSelecionado != null) {
+            new TelaPrincipalStudio(estudioSelecionado); // Chama a nova tela
+            dispose(); // Fecha a tela de login
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao encontrar o Studio.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    });
 
         setVisible(true);
     }
