@@ -1,9 +1,21 @@
-import java.time.LocalDate;
+import java.time.LocalDate; // Adicione esta linha
 import java.util.ArrayList;
 import java.util.List;
 
 public class Gerenciamento {
+    private static Gerenciamento instancia; 
     private final List<Jogo> jogos = new ArrayList<>();
+
+    // Construtor privado para evitar que outras classes criem instâncias
+    private Gerenciamento() {} 
+
+    // Método estático para obter a única instância da classe
+    public static Gerenciamento getInstance() { 
+        if (instancia == null) {
+            instancia = new Gerenciamento();
+        }
+        return instancia;
+    }
 
     public void adicionarJogo(Jogo jogo) {
         jogos.add(jogo);
@@ -52,5 +64,9 @@ public class Gerenciamento {
             return true;
         }
         return false;
+    }
+    
+    public List<Jogo> getJogos() {
+        return jogos;
     }
 }

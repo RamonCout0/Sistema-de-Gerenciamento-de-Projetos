@@ -2,12 +2,12 @@ import java.time.LocalDate;
 
 public class Jogo {
     private String nome;
-    private String status; // Em desenvolvimento, Concluído, Cancelado
+    private String status;
     private LocalDate prazoInicio;
     private LocalDate prazoFim;
     private String equipeResponsavel;
 
-    // Construtor principal, agora mais flexível
+ 
     public Jogo(String nome, String status, LocalDate prazoInicio, LocalDate prazoFim, String equipeResponsavel) {
         this.nome = nome;
         this.status = status;

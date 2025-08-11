@@ -35,14 +35,16 @@ public class TelaPrincipalStudio extends JFrame {
 
         // Lógica dos botões
         btnCriarProjeto.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidade de criar projeto a ser implementada!");
-            // Futuramente, chamará new TelaCriarJogo(estudioAtual);
+            TelaCriarJogo telaCriarJogo = new TelaCriarJogo(estudioAtual);
         });
+
         btnVerProjetos.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Funcionalidade de ver projetos a ser implementada!");
+            //Gerenciamento gerenciador = Gerenciamento.getInstance();
+            new TelaVerProjetos();
         });
+
         btnVerMembros.addActionListener(e -> {
-            JOptionPane.showMessageDialog(this, "Membros: " + estudioAtual.getMembros().size());
+            new TelaVerMembros(estudioAtual);
         });
 
         add(painelPrincipal);
