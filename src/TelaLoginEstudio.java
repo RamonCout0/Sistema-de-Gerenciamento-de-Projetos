@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class TelaLoginEstudio extends JFrame {
 
@@ -11,10 +9,10 @@ public class TelaLoginEstudio extends JFrame {
         setLocationRelativeTo(null);
 
         // Verifica se há estúdios para exibir
-        if (Main.studiosExistentes.isEmpty()) {
+        if (Main.getStudiosExistentes().isEmpty()) { // CHAMADA CORRIGIDA
             JOptionPane.showMessageDialog(this, "Não há studios cadastrados. Crie um primeiro!", "Erro", JOptionPane.ERROR_MESSAGE);
-            dispose(); // Fecha a janela se não houver estúdios
-            return; // Sai do construtor
+            dispose();
+            return;
         }
 
         JPanel painel = new JPanel();
@@ -25,7 +23,7 @@ public class TelaLoginEstudio extends JFrame {
         JComboBox<String> comboStudios = new JComboBox<>();
 
         // Adiciona os nomes dos estúdios à ComboBox
-        for (Studio estudio : Main.studiosExistentes) {
+        for (Studio estudio : Main.getStudiosExistentes()) { // CHAMADA CORRIGIDA
             comboStudios.addItem(estudio.getNome());
         }
 
