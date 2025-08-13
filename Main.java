@@ -14,7 +14,7 @@ public class Main {
         studioPadrao.adicionarProjeto(new Projeto("Jogo Exemplo", "Equipe A", "2025-12-31", "Em andamento"));
         estudiosExistentes.add(studioPadrao);
 
-        System.out.println("Bem-vindo(a) ao sistema de gerenciamento de projetos!");
+        System.out.println("Bem-vindo(a) ao sistema de gerenciamento de Studio de Jogos!");
 
         while (usuarioLogado == null) {
             exibirMenuInicial();
@@ -27,6 +27,7 @@ public class Main {
         System.out.println("\nVocê deseja:");
         System.out.println("1. Criar um novo Studio");
         System.out.println("2. Entrar em um Studio existente");
+        System.out.println("3. Sair do Sistema");
         System.out.print("Digite sua escolha: ");
 
         String escolha = scanner.nextLine();
@@ -35,8 +36,12 @@ public class Main {
             criarStudio();
         } else if (escolha.equals("2")) {
             entrarStudio();
-        } else {
-            System.out.println("Opção inválida. Tente novamente.");
+        } else if (escolha.equals("3")){
+            System.out.println("~~ Saindo ~~");
+            System.exit(0);
+        }
+         else {
+            System.out.println("Opção inválida. Tente novamente."); // Validação de dados
         }
     }
 
@@ -103,11 +108,11 @@ public class Main {
             System.out.println("\n--- Menu Principal do Studio ---");
             System.out.println("Bem-vindo(a), " + usuarioLogado.getNome() + "!");
             System.out.println("Você está no Studio: " + usuarioLogado.getStudio().getNome());
-            System.out.println("1. Listar projetos");
-            System.out.println("2. Criar projeto");
-            System.out.println("3. Ver detalhes de um projeto");
-            System.out.println("4. Gerar relatório");
-            System.out.println("5. Sair");
+            System.out.println("1. Listar Jogos");
+            System.out.println("2. Criar Jogo");
+            System.out.println("3. Ver detalhes de um Jogo");
+            System.out.println("4. Gerar relatório de Jogos em Andamento");
+            System.out.println("5. Sair do Sistema");
             System.out.print("Escolha: ");
             String escolha = scanner.nextLine();
 
@@ -125,7 +130,7 @@ public class Main {
                     usuarioLogado.getStudio().relatorioEmAndamento();
                     break;
                 case "5":
-                    System.out.println("Saindo...");
+                    System.out.println("~~ Saindo ~~");
                     return;
                 default:
                     System.out.println("Opção inválida.");
@@ -138,7 +143,7 @@ public class Main {
         String nome = scanner.nextLine();
         System.out.print("Equipe responsável: ");
         String equipe = scanner.nextLine();
-        System.out.print("Prazo (YYYY-MM-DD): ");
+        System.out.print("Prazo (DD-MM-AAAA): ");
         String prazo = scanner.nextLine();
         System.out.print("Status: ");
         String status = scanner.nextLine();
@@ -151,7 +156,7 @@ public class Main {
     public static void verProjeto() {
         Studio studio = usuarioLogado.getStudio();
         studio.listarProjetos();
-        System.out.print("Escolha o número do projeto para ver detalhes: ");
+        System.out.print("Escolha o número do Jogo para ver detalhes: ");
         try {
             int escolha = Integer.parseInt(scanner.nextLine());
             Projeto projeto = studio.getProjetos().get(escolha - 1);
@@ -169,10 +174,10 @@ public class Main {
                 projeto.setPrazo(scanner.nextLine());
                 System.out.print("Novo status: ");
                 projeto.setStatus(scanner.nextLine());
-                System.out.println("Projeto atualizado!");
+                System.out.println("Jogo atualizado!");
             } else if (opcao.equals("2")) {
                 studio.removerProjeto(projeto);
-                System.out.println("Projeto removido.");
+                System.out.println("Jogo removido.");
             }
         } catch (Exception e) {
             System.out.println("Opção inválida.");
