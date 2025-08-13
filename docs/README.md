@@ -5,6 +5,6 @@ Como utilizar esse projeto:
 
 1-Digite no CMD o comando "Java Main.java" Assim ele executará o arquivo.🪛
 
-2-uma Interface irá guiar você nesse projeto, caso tenha algum problema feche e execute o programa novamente. 🪛
+2-Após isso você terá opções no CMD, digite o número desejado, com isso terá acesso total do nosso projeto! 🪛
 
 Tudo vai ser armazenado no arquivo java. Bom proveito em nosso sistema!! 🌟
